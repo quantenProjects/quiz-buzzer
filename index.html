@@ -10,7 +10,10 @@
   <body>
     <div class="grid-container">
         <button class="grid-item button" id="button1" onclick="button('button1');">Team 1</button>
-        <p class="grid-item" id="timer"></p>
+        <div class="grid-item">
+            <p id="timer"></p>
+            <button onclick="document.documentElement.requestFullscreen()">Fullscreen</button>
+        </div>
         <button class="grid-item button" id="button2" onclick="button('button2');">Team 2</button>
     </div>
 	<script src="script.js"></script>
