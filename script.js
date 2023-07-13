@@ -1,6 +1,10 @@
 
 var tens = 0;
-const timeout = 30;
+var frag = window.location.hash.substr(1);
+var timeout = 30;
+if (! isNaN(parseInt(frag))) {
+    timeout = parseInt(frag)*10;
+}
 
 function button(buttonid) {
     for (const element of document.getElementsByClassName("button")) {
@@ -12,20 +16,25 @@ function button(buttonid) {
     setTimeout(timer, 100)
 }
 
+function set_timer(time) {
+    document.getElementById("timer").innerText = (time/10).toFixed(1) + " sec"
+
+}
+
 function timer() {
    if (tens <= 0) {
        buzzer()
    } else {
        tens -= 1;
        setTimeout(timer, 100)
-       document.getElementById("timer").innerText = tens/10 + " sec"
+       set_timer(tens)
    }
 }
 
 
 function buzzer() {
     beep(500, 440, 250)
-    setTimeout(reset, 500)
+    setTimeout(reset, 1000)
 }
 
 
@@ -34,8 +43,10 @@ function reset() {
         element.removeAttribute("disabled");
         element.style.opacity = "100%"
     }
-    document.getElementById("timer").innerText = timeout/10 + " sec"
+    set_timer(timeout)
 }
+
+set_timer(timeout)
 
 // below from https://ourcodeworld.com/articles/read/1627/how-to-easily-generate-a-beep-notification-sound-with-javascript
 

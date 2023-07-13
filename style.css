@@ -1,7 +1,7 @@
 .grid-container {
     display: grid;
-    gap: 5%;
-    grid-template-columns: 1fr 1fr;
+    column-gap: 3%;
+    grid-template-columns: 5fr 1fr 5fr;
 }
 
 .grid-item {
@@ -15,4 +15,10 @@
 
 #button2 {
     background-color: green;
+}
+
+#timer {
+    font-size: x-large;
+    text-align: center;
+    font-family: sans-serif;
 }
